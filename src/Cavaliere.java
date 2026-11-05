@@ -1,15 +1,24 @@
-public class Cavaliere {
+import java.util.ArrayList;
+public class Cavaliere implements Runnable{
     private String nome;
-    private int puntiVita;
-    private String arma;
-    private int forzaAttacco;
-
-
-    public Cavaliere(String nome, int puntiVita, String arma, int forzaAttacco){
-        this.nome=nome;
-        this.puntiVita=puntiVita;
-        this.arma=arma;
-        this.forzaAttacco=forzaAttacco;
+    private Cavaliere maestro;
+    private Thread dragoDaUccidere;
+    public Cavaliere(String nome, Thread dragoDaUccidere) {
+        this.nome = nome;
+        this.dragoDaUccidere = dragoDaUccidere;
+    }
+    @Override
+    public void run() {
+        for(int i=0; i<10  && (!dragoDaUccidere.isInterrupted()); i++){
+            try {
+                Thread.sleep(5);
+                System.out.println(nome+ " sta cercando di colpire il drago "+(1+i));
+                dragoDaUccidere.interrupt(); //lancio freccia
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
 
     }
+
 }

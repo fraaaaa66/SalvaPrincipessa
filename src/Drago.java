@@ -1,13 +1,19 @@
-public abstract class Drago {
-
-    protected String nome;
-    protected int puntiVita;
-    protected int potenzaAttacco;
-
-    public Drago(String nome,int puntiVita,int potenzaAttacco){
-        this.nome=nome;
-        this.puntiVita=puntiVita;
-        this.potenzaAttacco=potenzaAttacco;
+public class Drago {
+    private String nome;
+    private Cavaliere cacciatore;
+    public Drago(String nome) {
+        this.nome = nome;
     }
-
+    //    public String Distruggi(){
+//        return this.nome + " sta distruggendo il villaggio";
+//    }
+    public Cavaliere getCacciatore() {
+        return cacciatore;
+    }
+    public void setCacciatore(Cavaliere cacciatore) {
+        this.cacciatore = cacciatore;
+    }
+    public String getNome() {
+        return nome;
+    }
 }

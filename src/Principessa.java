@@ -1,14 +1,13 @@
 public class Principessa {
-
     private String nome;
-    private int puntiVita;
-
-
-    public Principessa(String nome, int puntiVita){
-        this.nome=nome;
-        this.puntiVita=puntiVita;
-
+    private Drago carceriere;
+    public Principessa(String nome) {
+        this.nome = nome;
+    }
+    public Drago getCarceriere() {
+        return carceriere;
+    }
+    public void setCarceriere(Drago carceriere) {
+        this.carceriere = carceriere;
     }
 }
-
-
